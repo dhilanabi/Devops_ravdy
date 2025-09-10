@@ -3,22 +3,22 @@ provider "aws" {
 region  = "ap-south-1"
 }
 
-resource "aws_instance" "demo_server" {
+resource "aws_instance" "demo-serverpro" {
   ami           = "ami-0861f4e788f5069dd"
   instance_type = "t2.micro"
   key_name   = "demo_server"
-  security_groups = ["demo_server-sg"]
+  security_groups = ["demo-server-sg"]
   tags = {
-    Name = "demo_server"
+    Name = "demo-server"
   }
 }
 
-resource "aws_security_group" "demo_server-sg" {
-  name        = "demo_server-sg"
-  description = "SSH_access"
+resource "aws_security_group" "demo-server-sg" {
+  name        = "demo-server-sg"
+  description = "SSH-access"
  
   ingress {
-    description = "SSH_access"
+    description = "SSH-access"
     from_port   = 22
     to_port     = 22  
     protocol    = "tcp"
@@ -33,6 +33,6 @@ resource "aws_security_group" "demo_server-sg" {
   }
 
   tags = {
-    Name = "demo_server-sg"
+    Name = "demo-server-sg"
   }
 }
